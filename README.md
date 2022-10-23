@@ -55,13 +55,15 @@ graph
     A[sd_work_manager] --- D[sd_work_node]
     E[ai_painting_bot] --- A[sd_work_manager]
     F[discord] --- E[ai_painting_bot]
-    F[discord] --- G[users]
+    G[users] --- F[discord]
 ```
 
 ### 前置要求
 
 - 依赖服务
   - [sd_work_node](https://github.com/9chu/sd_work_node)
+    - 不低于 6G 显存的 GPU 服务器
+    - 在 Tesla P4（7.5G）环境下部署成功，可以工作在中等内存优化级别下
   - [sd_work_manager](https://github.com/9chu/sd_work_manager)
 - Python >= 3.6
 - 相关模型数据（Checkpoint、Embedding、Hypernetwork），具体见`sd_work_node`配置
